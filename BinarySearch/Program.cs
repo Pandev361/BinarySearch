@@ -8,10 +8,15 @@
 
             var sortetArr = SortingArr(food);
 
-            BinarySearching("Kä", sortetArr);
+
+            Console.WriteLine("Put in your Word u are searching: \n");
+            var input = Console.ReadLine();
+
+            var isFound = input != null && BinarySearching(input, sortetArr);
+            Console.WriteLine(">our Word " + (isFound ? "was found" : "wasnt found!"));
         }
 
-        private static string BinarySearching(string searchString, string[] sortetArr)
+        private static bool BinarySearching(string searchString, string[] sortetArr)
         {
             var foundItems = new List<string>();
 
@@ -28,7 +33,7 @@
                 switch (cmp)
                 {
                     case 0:
-                        return sortetArr[mid];
+                        return true;
                     case < 0:
                         right = mid - 1;
                         break;
@@ -38,7 +43,7 @@
                 }
             }
 
-            return string.Empty;
+            return false;
         }
 
         private static string[] SortingArr(string[] sortingArr)
