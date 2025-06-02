@@ -6,13 +6,13 @@
         {
             string[] food = { "Käse", "Ananas", "Döner", "Reis", "Sahne", "Paprika", "Salami", "Schinken" };
 
-            var sortetArr = SortingArr(food);
+            //var sortetArr = BubbleSortingArr(food);
 
-
+            var sortet = SelectionSorting(food);
             Console.WriteLine("Put in your Word u are searching: \n");
             var input = Console.ReadLine();
 
-            var isFound = input != null && BinarySearching(input, sortetArr);
+            var isFound = input != null && BinarySearching(input, sortet);
             Console.WriteLine("Your Word " + (isFound ? "was found" : "wasnt found!"));
         }
 
@@ -44,7 +44,30 @@
             return false;
         }
 
-        private static string[] SortingArr(string[] sortingArr)
+
+        private static string[] SelectionSorting(string[] sortingArr)
+        {
+            for (var i = 0; i < sortingArr.Length - 1; i++)
+            {
+                var currentSmallestIndex = i;
+
+                for (var j = i + 1; j < sortingArr.Length; j++)
+                {
+                    if (string.CompareOrdinal(sortingArr[j], sortingArr[currentSmallestIndex]) < 0)
+                    {
+                        currentSmallestIndex = j;
+                    }
+                }
+
+                if (currentSmallestIndex == i) continue;
+                (sortingArr[i], sortingArr[currentSmallestIndex]) = (sortingArr[currentSmallestIndex], sortingArr[i]);
+            }
+
+            return sortingArr;
+        }
+
+
+        private static string[] BubbleSortingArr(string[] sortingArr)
         {
             var sortedArr = new string[sortingArr.Length];
 
