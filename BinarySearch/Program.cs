@@ -13,7 +13,7 @@
             var input = Console.ReadLine();
 
             var isFound = input != null && BinarySearching(input, sortetArr);
-            Console.WriteLine(">our Word " + (isFound ? "was found" : "wasnt found!"));
+            Console.WriteLine("Your Word " + (isFound ? "was found" : "wasnt found!"));
         }
 
         private static bool BinarySearching(string searchString, string[] sortetArr)
