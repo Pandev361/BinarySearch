@@ -2,7 +2,7 @@
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             string[] food = { "Käse", "Ananas", "Döner", "Reis", "Sahne", "Paprika", "Salami", "Schinken" };
 
@@ -18,8 +18,6 @@
 
         private static bool BinarySearching(string searchString, string[] sortetArr)
         {
-            var foundItems = new List<string>();
-
             var left = 0;
             var right = sortetArr.Length - 1;
 
